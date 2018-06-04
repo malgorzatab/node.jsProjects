@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trips</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/javascripts/main.js"></script>
+</head>
+<body>
+<% include ./nav.ejs%>
+<%- messages('message', locals) %>
+<!-- include partials/nav.ejs inherit navbar-->
+<!-- Navbar (sit on top) -->
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">MY <span class="w3-hide-small">WEBSITE</span> LOGO</span>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center"><%= title %></h3>
+  <p class="w3-center"><em>I love photography</em></p>
+  <ul>
+    <% for(var i=0; i<trips.length; i++){%>
+    <li><a href="/<%= trips[i]._id %>"><%= trips[i].title%> <%= trips[i].author%></a></li>
+    <% } %>
+  </ul>
+</div>
+
+<div class="w3-content w3-container w3-padding-64" id="add">
+  <p>Share your trip</p>
+  <div class="w3-content w3-container w3-padding-64" id="add">
+    <h1><%= title %></h1>
+    <form method="post" action="/">
+      <input class="w3-input w3-border" type="text" name="title" placeholder="Add title..." required />
+      <input class="w3-input w3-border" type="text" name="author" placeholder="Add author..." required />
+      <input class="w3-input w3-border" type="text" name="short_desc" placeholder="Add short description..." required />
+      <input class="w3-input w3-border" type="text" name="description" placeholder="Add description..." required />
+      <input class="w3-input w3-border" type="text" name="img_url" placeholder="Add image url..." required />
+      <button class="w3-button w3-black" id="add" type="submit" >Add trip</button>
+    </form>
+  </div>
+
+  <!--<a href="/add"><button class="w3-button w3-gray" type="button" >Add trip</button></a>-->
+</div>
+
+</body>
+</html>

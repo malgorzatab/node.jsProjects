@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Article</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/main.js"></script>
+</head>
+<body>
+<% include ./nav.ejs%>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+    <h3 class="w3-center"><%= trip.title %></h3>
+    <h4 class="w3-center"><%= trip.author %></h4>
+    <h5 class="w3-center"><%= trip.short_desc%></h5>
+    <p class="w3-center"><%= trip.description%></p>
+
+
+    <a href="/edit/<%= trip._id %>"><button class="w3-button w3-gray" id="edit" type="button" >Edit</button></a>
+    <a href="#" ><button value="<%= trip._id %>" class="w3-button w3-gray" id="delete-trip" type="button" >Delete</button></a>
+
+
+</div>
+</body>
+</html>
