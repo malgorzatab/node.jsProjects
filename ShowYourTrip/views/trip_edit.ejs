@@ -10,21 +10,18 @@
 
 <!-- Container (About Section) -->
 
-<div class="w3-content w3-container w3-padding-64" id="add">
-    <p>Share your trip</p>
     <div class="w3-content w3-container w3-padding-64" id="add">
         <h1>Editing trip</h1>
         <form method="post" action="/edit/<%= trip._id %>">
-            <input class="w3-input w3-border" type="text" name="title" value="<%= trip.title%>" required />
-            <input class="w3-input w3-border" type="text" name="author" value="<%= trip.author%>" required />
-            <input class="w3-input w3-border" type="text" name="short_desc" value="<%= trip.short_desc%>" required />
-            <input class="w3-input w3-border" type="text" name="description" value="<%= trip.description%>" required />
-            <input class="w3-input w3-border" type="text" name="img_url" value="<%= trip.img_url%>" required />
+            <label>Title: </label><input class="w3-input w3-border" type="text" name="title" value="<%= trip.title%>" required />
+            <label>Author: </label><input class="w3-input w3-border" type="text" name="author" value="<%= trip.author%>" required />
+            <label>Short Description: </label><input class="w3-input w3-border" type="text" name="short_desc" value="<%= trip.short_desc%>" required />
+            <label>Description: </label><input class="w3-input w3-border" type="text" name="description" value="<%= trip.description%>" required />
+            <label>Image URL: </label><input class="w3-input w3-border" type="text" name="img_url" value="<%= trip.img_url%>" required />
+            <br>
             <button class="w3-button w3-black" id="add" type="submit" >Edit</button>
         </form>
     </div>
-    <!--<a href="/add"><button class="w3-button w3-gray" type="button" >Add trip</button></a>-->
-</div>
 
 </body>
 </html>

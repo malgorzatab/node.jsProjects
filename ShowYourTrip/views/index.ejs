@@ -2,10 +2,12 @@
 <html>
 <head>
   <title>Trips</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="/javascripts/main.js"></script>
 </head>
-<body>
+
+<body class="w3-light-grey">
 <% include ./nav.ejs%>
 <%- messages('message', locals) %>
 <!-- include partials/nav.ejs inherit navbar-->
@@ -14,37 +16,88 @@
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">MY <span class="w3-hide-small">WEBSITE</span> LOGO</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">POST <span class="w3-hide-small">YOUR</span> TRIP</span>
   </div>
 </div>
 
 <!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center"><%= title %></h3>
-  <p class="w3-center"><em>I love photography</em></p>
-  <ul>
-    <% for(var i=0; i<trips.length; i++){%>
-    <li><a href="/<%= trips[i]._id %>"><%= trips[i].title%> <%= trips[i].author%></a></li>
-    <% } %>
-  </ul>
+<div class="w3-content w3-container w3-padding-64 w3-center ">
+  <h3 class="w3-center">ABOUT US</h3>
+  <p class="w3-center"><em>We are community which love mountain trips!</em></p>
+  <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+    qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">EXPLORE <span class="w3-hide-small">OUR</span> TRIPS</span>
+
+  </div>
+</div>
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="trips">
+  <!-- Explore Nature -->
+  <div class="w3-container">
+    <h3>Travel with us and see nature at its finest.</h3>
+  </div>
+  <% for(var i=0; i<trips.length; i++){%>
+  <div class="w3-row-padding">
+    <div class="w3-half w3-margin-bottom">
+      <img src="<%= trips[i].img_url%>" alt="Photo" style="width:100%">
+      <div class="w3-container w3-white">
+        <h3><%= trips[i].title%></h3>
+        <p><%= trips[i].short_desc%></p>
+        <a href="/<%= trips[i]._id %>"><button class="w3-button w3-margin-bottom">Read More</button></a>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">SHARE <span class="w3-hide-small">YOUR</span> TRIP</span>
+
+  </div>
 </div>
 
 <div class="w3-content w3-container w3-padding-64" id="add">
-  <p>Share your trip</p>
-  <div class="w3-content w3-container w3-padding-64" id="add">
-    <h1><%= title %></h1>
     <form method="post" action="/">
-      <input class="w3-input w3-border" type="text" name="title" placeholder="Add title..." required />
-      <input class="w3-input w3-border" type="text" name="author" placeholder="Add author..." required />
-      <input class="w3-input w3-border" type="text" name="short_desc" placeholder="Add short description..." required />
-      <input class="w3-input w3-border" type="text" name="description" placeholder="Add description..." required />
-      <input class="w3-input w3-border" type="text" name="img_url" placeholder="Add image url..." required />
+      <label>Title: </label><input class="w3-input w3-border" type="text" name="title" placeholder="Add title..." required />
+     <!-- <input class="w3-input w3-border" type="text" name="author" placeholder="Add author..." required />-->
+      <label>Short description:</label><input class="w3-input w3-border" type="text" name="short_desc" placeholder="Add short description..." required />
+      <label>Description:</label><input class="w3-input w3-border" type="text" name="description" placeholder="Add description..." required />
+      <label>Image url:</label><input class="w3-input w3-border" type="text" name="img_url" placeholder="Add image url..." required />
+      <br>
       <button class="w3-button w3-black" id="add" type="submit" >Add trip</button>
     </form>
-  </div>
-
-  <!--<a href="/add"><button class="w3-button w3-gray" type="button" >Add trip</button></a>-->
+</div>
 </div>
 
+<!-- Fourth Parallax Image with Portfolio Text -->
+<div class="bgimg-4 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">CONTACT <span class="w3-hide-small">US</span>
+
+  </div>
+</div>
+
+<!-- Contact -->
+<div class="w3-container" id="contact">
+  <h2>Contact</h2>
+  <i class="fa fa-map-marker" style="width:30px"></i> Cracow, PL<br>
+  <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+  <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+  <form action="/" target="_blank">
+    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+    <br>
+    <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
+  </form>
+</div>
 </body>
 </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trips</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/main.js"></script>
+</head>
+<body>
+<% include ./nav.ejs%>
+<%- messages('message', locals) %>
+<!-- include partials/nav.ejs inherit navbar-->
+<!-- Navbar (sit on top) -->
+    <div class="w3-content w3-container w3-padding-64" id="add">
+        <form method="post" action="/users/register">
+            <p>Name: </p> <input class="w3-input w3-border" type="text" name="name" placeholder="Add Name..." required />
+            <p>E-mail: </p><input class="w3-input w3-border" type="email" name="email" placeholder="Add e-mail..." required />
+            <p>Username: </p><input class="w3-input w3-border" type="text" name="username" placeholder="Add username..." required />
+            <p>Password: </p><input class="w3-input w3-border" type="password" name="password" placeholder="Add password..." required />
+            <p>Confirm password: </p><input class="w3-input w3-border" type="password" name="password2" placeholder="Confirm password..." required />
+            <br>
+            <button class="w3-button w3-black" id="register" type="submit" >Register</button>
+        </form>
+    </div>
+
+</body>
+</html>

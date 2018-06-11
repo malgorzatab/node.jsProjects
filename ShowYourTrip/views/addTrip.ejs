@@ -5,19 +5,24 @@
 </head>
 <body>
 <% include ./nav.ejs%>
+<%- messages('message', locals) %>
+<!-- include partials/nav.ejs inherit navbar-->
 
-<div class="w3-top">
+<div class="w3-content w3-container w3-padding-64" id="add">
+    <p>Share your trip</p>
     <div class="w3-content w3-container w3-padding-64" id="add">
         <h1><%= title %></h1>
-        <form method="post" action="/add" >
+        <form method="post" action="/">
             <input class="w3-input w3-border" type="text" name="title" placeholder="Add title..." required />
-            <input class="w3-input w3-border" type="text" name="author" placeholder="Add author..." required />
+            <!-- <input class="w3-input w3-border" type="text" name="author" placeholder="Add author..." required />-->
             <input class="w3-input w3-border" type="text" name="short_desc" placeholder="Add short description..." required />
             <input class="w3-input w3-border" type="text" name="description" placeholder="Add description..." required />
             <input class="w3-input w3-border" type="text" name="img_url" placeholder="Add image url..." required />
-            <button class="w3-button w3-black" id="add" type="submit" >Add article</button>
+            <button class="w3-button w3-black" id="add" type="submit" >Add trip</button>
         </form>
     </div>
+
+    <!--<a href="/add"><button class="w3-button w3-gray" type="button" >Add trip</button></a>-->
 </div>
 
 </body>

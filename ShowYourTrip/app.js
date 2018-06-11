@@ -8,6 +8,8 @@ let mongoose = require('mongoose');
 let expressValidator = require('express-validator');
 let flash = require('connect-flash');
 let session = require('express-session');
+let config = require('./config/database');
+let passport = require('passport');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
@@ -71,6 +73,17 @@ app.use(expressValidator({
         };
     }
 }));
+
+//passport config
+require('./config/passport')(passport);
+//passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('*', function (req,res,next) {
+    res.locals.user = req.user || null;
+    next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
